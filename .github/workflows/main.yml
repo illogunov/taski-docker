@@ -38,6 +38,13 @@ jobs:
           pip install flake8==7.3.0 flake8-isort==7.0.0
           pip install -r backend/requirements.txt
 
+      - name: Wait for Postgres
+        run: |
+          until pg_isready -h 127.0.0.1 -p 5432 -U django_user; do
+            echo "Waiting for postgres..."
+            sleep 2
+          done
+
       - name: Run tests
         env:
           POSTGRES_USER: django_user
