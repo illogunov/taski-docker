@@ -48,7 +48,7 @@ jobs:
       - name: Run tests
         env:
           POSTGRES_USER: django_user
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_PASSWORD: mysecretpassword
           POSTGRES_DB: django
           DB_HOST: 127.0.0.1
           DB_PORT: 5432
